@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { EasybaseProvider, useEasybase } from 'easybase-react';
+import { useEffect } from 'react';
+import ebconfig from './ebconfig';
+import SignInPage from './comps/SignInPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ display: "flex", justifyContent: "center" }}>
+      <EasybaseProvider ebconfig={ebconfig}>
+        <Router/>
+      </EasybaseProvider>
     </div>
   );
 }
+
+function Router() {
+  const { isUserSignedIn, signOut } = useEasybase();
+
+  return (
+    isUserSignedIn() ?
+    <div>
+      <p>Welcome to proto squid games</p>
+      <button onClick={signOut}>sign out</button>
+    </div>
+      :
+      <SignInPage />
+  )
+}
+
 
 export default App;
