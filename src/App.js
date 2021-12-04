@@ -6,7 +6,7 @@ import SignInPage from './comps/SignInPage';
 
 function App() {
   return (
-    <div className="App" style={{ display: "flex", justifyContent: "center" }}>
+    <div className="App-container" style={{ display: "flex", justifyContent: "center" }}>
       <EasybaseProvider ebconfig={ebconfig}>
         <Router/>
       </EasybaseProvider>
