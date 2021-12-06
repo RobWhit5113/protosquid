@@ -3,6 +3,7 @@ import { EasybaseProvider, useEasybase } from 'easybase-react';
 import { useEffect } from 'react';
 import ebconfig from './ebconfig';
 import SignInPage from './comps/SignInPage';
+import PicksPage from './comps/PicksPage';
 
 function App() {
   return (
@@ -15,14 +16,11 @@ function App() {
 }
 
 function Router() {
-  const { isUserSignedIn, signOut } = useEasybase();
+  const { isUserSignedIn} = useEasybase();
 
   return (
     isUserSignedIn() ?
-    <div>
-      <p>Welcome to proto squid games</p>
-      <button onClick={signOut}>sign out</button>
-    </div>
+      <PicksPage />
       :
       <SignInPage />
   )

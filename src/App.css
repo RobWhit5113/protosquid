@@ -1,25 +1,39 @@
+*{
+  box-sizing: border-box;
+}
+h2,
+h3{
+  color: aliceblue;
+}
+
 .App-container{
-  display: "flex";
+  display: flex;
   justify-content: center;
   background-color: black;
-  height: auto;
   width: auto;
+  height: 100vh;
 
 }
 
-.container{
-  padding: 2em;
-  margin: 2em;
-  border: 3px solid black;
-
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title{
   color: tomato;
 }
 
+.picks-container{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center ;
+}
 
 .button{
+  margin-top: 1em;
   background-color: green;
   color: black;
   cursor: pointer;

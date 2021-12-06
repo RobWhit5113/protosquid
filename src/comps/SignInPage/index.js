@@ -15,15 +15,19 @@ function SignInPage() {
 
   const handleSignInPress = async () => {
     await signIn(userVal, userPas);
-    clearInputs();
+    // clearInputs();
   }
 
   return (
     <div className='page-container'>
-      <h1 className='title' >proto squid games</h1>
-      <input  value={userVal} onChange={e => setUserVal(e.target.value)}  placeholder="email" />
-      <div className='button-container'>
-        <button className='button' onClick={handleSignInPress}>Sign In </button>
+      <div className='header'>
+        <h1 className='title' >proto squid games</h1>
+      </div>
+      <div className='picks-container'>
+        <input  value={userVal} onChange={e => setUserVal(e.target.value)}  placeholder="email" />
+        <div className='button-container'>
+          <button className='button' onClick={handleSignInPress}>Sign In </button>
+        </div>
       </div>
     </div>
   )
