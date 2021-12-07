@@ -5,6 +5,7 @@ import ebconfig from './ebconfig';
 import moment from 'moment';
 import SignInPage from './comps/SignInPage';
 import PicksPage1 from './comps/PicksPage1';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
@@ -21,11 +22,11 @@ function Router() {
   const today = moment().date()
   let picsPage = <PicksPage1 />
 
-  if(today == 6){
-    picsPage = <PicksPage1/>
-  }else{
-    picsPage = ''
-  }
+  // if(today == 7){
+  //   picsPage = <PicksPage1/>
+  // }else{
+  //   picsPage = ''
+  // }
 
   return (
     isUserSignedIn() ?

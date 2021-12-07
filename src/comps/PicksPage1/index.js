@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef} from 'react';
 import { useEasybase } from "easybase-react";
 import moment from 'moment'
+import { Card, Button, DropdownButton, Dropdown } from 'react-bootstrap';
+
 
 
 function PicksPage() {
   const [picksVal, setPicksVal] = useState("Please Choose Your Pick");
   const [email, setEmail] = useState('')
   const [number, setNumber] = useState(0)
+  const [step, setStep] = useState(0)
+  let action = ''
 
   
   const {signOut, db, getUserAttributes} = useEasybase()
@@ -28,10 +32,17 @@ function PicksPage() {
       }).one()
       
       setPicksVal("");
+      setStep(1)
+
     } catch (err) {
       console.log(err)
       alert("Please enter your picks")
     }
+  }
+
+  const handleSignOut = () => {
+    setStep(0)
+    signOut()
   }
 
   useEffect(()=> {
@@ -41,39 +52,54 @@ function PicksPage() {
     })
   },)
 
+  if(step == 0){
+    action = 
+      <div className='picks-container'>
+        <div className='directions-container'>
+          <h3 className='directions'>Please choose a 3-team parlay</h3>
+        </div>
+        <div className="dropdown-selector">
+          <DropdownButton id="dropdown-basic-button" title="Choose Picks Here">
+            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          </DropdownButton>
+        </div>
+        <div className='button-container'>
+          <Button variant='primary' className='button' onClick={handlePicksEntry}>Enter Picks</Button>
+        </div>
+      </div>
+  } else if (step==1){
+    action = 
+    <div className='signout-cotainer'>
+      <div className='message-container'>
+        <h2>Thank you for your entry, good luck</h2>
+        <h3>Please signout</h3>
+      </div>
+      <div className='signout-button-container'>
+        <Button variant='primary' className='button' onClick={handleSignOut}>Sign Out </Button>
+      </div>
+    </div>
+  }
+
   return (
     <div className='page-container'>
       <div className='header'>
         <div className='page-players-left'>
-          <h2 className='players-left'>100 Players left</h2>
+          <Card>
+            <Card.Body>100 Players Left</Card.Body>
+          </Card>
         </div>
         <div className='page-title'>
           <h1 className='title' > Welcome Player #{number}</h1>
         </div>
         <div className='page-jackpot'>
-          <h2 className='jackpot'>$1,000</h2>
+          <Card>
+            <Card.Body>Jackpot: $1,000</Card.Body>
+          </Card>
         </div>
       </div>
-      <div className='picks-container'>
-        <div className='directions-container'>
-          <h3 className='directions'>Please choose a 3-team parlay</h3>
-        </div>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            {picksVal}
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li>Player 1</li>
-            <li>Player 2</li>
-            <li>Player 3</li>
-          </ul>
-        </div>
-        <div className='button-container'>
-          <button className='button' onClick={handlePicksEntry}>Enter Picks</button>
-          <button className='button' onClick={signOut}>Sign Out </button>
-        </div>
-      </div>
+      {action}
     </div>
   )
 }
