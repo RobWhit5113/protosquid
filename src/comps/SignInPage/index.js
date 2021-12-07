@@ -24,7 +24,7 @@ function SignInPage() {
 
   return (
     <div className='page-container'>
-      <div className='header'>
+      <div className='sign-header'>
         <h1 className='title'>proto squid games</h1>
       </div>
       <div className='picks-container'>

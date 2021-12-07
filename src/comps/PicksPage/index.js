@@ -7,7 +7,7 @@ import Picks1 from './Picks1';
 
 
 function PicksPage() {
-  const [picksVal, setPicksVal] = useState("Please Choose Your Pick");
+  const [picksVal, setPicksVal] = useState("Please Enter Your Picks");
   const [email, setEmail] = useState('')
   const [number, setNumber] = useState(0)
   const [step, setStep] = useState(0)
@@ -16,9 +16,6 @@ function PicksPage() {
   
   const {signOut, db, getUserAttributes} = useEasybase()
 
-  const passFunction = () => {
-    setPicksVal()
-  }
 
   const getInfo = async() => {
     var response = await getUserAttributes()
@@ -27,8 +24,7 @@ function PicksPage() {
 
   const handlePicksEntry = async () => {
     try {
-      if (picksVal);
-
+      if (picksVal !== "Please Enter Your Picks"){
       await db('ENTRIES').insert({
         email: email,
         squidnumber: number,
@@ -37,7 +33,9 @@ function PicksPage() {
       }).one()
       
       setPicksVal("");
-      setStep(1)
+      setStep(1)} else {
+        alert("Please enter your picks")
+      }
 
     } catch (err) {
       console.log(err)
@@ -68,7 +66,7 @@ function PicksPage() {
           <h3 className='directions'>Please choose a 3-team parlay</h3>
         </div>
         <div className="dropdown-selector">
-          <DropdownButton id="dropdown-basic-button" title={picksVal} placeholder='Choose Picks Here' onSelect={handleSelect}>
+          <DropdownButton id="dropdown-basic-button" title={picksVal} onSelect={handleSelect}>
             <Dropdown.Item eventKey='pick123'>Action</Dropdown.Item>
             <Dropdown.Item eventKey='pick456'>Another action</Dropdown.Item>
             <Dropdown.Item eventKey='pick789'>Something else</Dropdown.Item>
