@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef} from 'react';
 import { useEasybase } from "easybase-react";
 import moment from 'moment'
 import { Card, Button, DropdownButton, Dropdown } from 'react-bootstrap';
+import Picks1 from './Picks1';
 
 
 
@@ -14,6 +15,10 @@ function PicksPage() {
 
   
   const {signOut, db, getUserAttributes} = useEasybase()
+
+  const passFunction = () => {
+    setPicksVal()
+  }
 
   const getInfo = async() => {
     var response = await getUserAttributes()
@@ -45,6 +50,10 @@ function PicksPage() {
     signOut()
   }
 
+  const handleSelect = e => {
+  setPicksVal(e)
+  }
+
   useEffect(()=> {
     getInfo().then(res => {
       setEmail(res.email)
@@ -59,21 +68,25 @@ function PicksPage() {
           <h3 className='directions'>Please choose a 3-team parlay</h3>
         </div>
         <div className="dropdown-selector">
-          <DropdownButton id="dropdown-basic-button" title="Choose Picks Here">
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          <DropdownButton id="dropdown-basic-button" title={picksVal} placeholder='Choose Picks Here' onSelect={handleSelect}>
+            <Dropdown.Item eventKey='pick123'>Action</Dropdown.Item>
+            <Dropdown.Item eventKey='pick456'>Another action</Dropdown.Item>
+            <Dropdown.Item eventKey='pick789'>Something else</Dropdown.Item>
           </DropdownButton>
         </div>
         <div className='button-container'>
           <Button variant='primary' className='button' onClick={handlePicksEntry}>Enter Picks</Button>
         </div>
       </div>
-  } else if (step==1){
+        
+      
+  } else if (step == 1){
     action = 
-    <div className='signout-cotainer'>
+    <div className='signout-container'>
       <div className='message-container'>
         <h2>Thank you for your entry, good luck</h2>
+      </div>
+      <div className='signout-request-container'>
         <h3>Please signout</h3>
       </div>
       <div className='signout-button-container'>

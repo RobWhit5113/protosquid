@@ -19,7 +19,10 @@ h3{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100vw;
 }
+
+
 
 .title{
   color: tomato;
@@ -32,9 +35,29 @@ h3{
   align-items: center ;
 }
 
-.button{
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-items:center;
   padding-top: 1em;
+}
+
+.button{  
   background-color: green;
   color: black;
   cursor: pointer;
+}
+
+.message-container,
+.signout-request-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signout-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
