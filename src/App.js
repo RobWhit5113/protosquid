@@ -2,8 +2,9 @@ import './App.css';
 import { EasybaseProvider, useEasybase } from 'easybase-react';
 import { useEffect } from 'react';
 import ebconfig from './ebconfig';
+import moment from 'moment';
 import SignInPage from './comps/SignInPage';
-import PicksPage from './comps/PicksPage';
+import PicksPage1 from './comps/PicksPage1';
 
 function App() {
   return (
@@ -17,10 +18,18 @@ function App() {
 
 function Router() {
   const { isUserSignedIn} = useEasybase();
+  const today = moment().date()
+  let picsPage = <PicksPage1 />
+
+  if(today == 6){
+    picsPage = <PicksPage1/>
+  }else{
+    picsPage = ''
+  }
 
   return (
     isUserSignedIn() ?
-      <PicksPage />
+      picsPage
       :
       <SignInPage />
   )

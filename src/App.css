@@ -33,7 +33,7 @@ h3{
 }
 
 .button{
-  margin-top: 1em;
+  padding-top: 1em;
   background-color: green;
   color: black;
   cursor: pointer;

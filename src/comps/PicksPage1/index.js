@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef} from 'react';
 import { useEasybase } from "easybase-react";
+import moment from 'moment'
+
 
 function PicksPage() {
-  const [picksVal, setPicksVal] = useState("");
+  const [picksVal, setPicksVal] = useState("Please Choose Your Pick");
   const [email, setEmail] = useState('')
   const [number, setNumber] = useState(0)
 
@@ -22,7 +24,7 @@ function PicksPage() {
         email: email,
         squidnumber: number,
         picks: picksVal,
-        createdAt: new Date()
+        createdAt: moment().format('MM-DD-YYYY HH:mm:ss'),
       }).one()
       
       setPicksVal("");
@@ -35,7 +37,7 @@ function PicksPage() {
   useEffect(()=> {
     getInfo().then(res => {
       setEmail(res.email)
-      setNumber(res.number) 
+      setNumber(res.number)
     })
   },)
 
@@ -56,8 +58,16 @@ function PicksPage() {
         <div className='directions-container'>
           <h3 className='directions'>Please choose a 3-team parlay</h3>
         </div>
-        <div className='input-container'>
-          <input  value={picksVal} onChange={e => setPicksVal(e.target.value)}  placeholder="Please Enter You Picks Here" />
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {picksVal}
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li>Player 1</li>
+            <li>Player 2</li>
+            <li>Player 3</li>
+          </ul>
         </div>
         <div className='button-container'>
           <button className='button' onClick={handlePicksEntry}>Enter Picks</button>
