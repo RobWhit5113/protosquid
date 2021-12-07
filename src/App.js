@@ -6,6 +6,7 @@ import moment from 'moment';
 import SignInPage from './comps/SignInPage';
 import PicksPage from './comps/PicksPage';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Footer from './comps/Footer';
 
 function App() {
   return (
@@ -29,10 +30,17 @@ function Router() {
   // }
 
   return (
-    isUserSignedIn() ?
-      <PicksPage />
-      :
-      <SignInPage />
+      isUserSignedIn() ?
+        <div className='big-container'> 
+          <PicksPage />
+          <Footer />
+        </div>
+        :
+        <div className='big-container'>
+          <SignInPage />
+          <Footer />
+        </div>
+  
   )
 }
 

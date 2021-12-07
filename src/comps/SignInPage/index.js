@@ -30,7 +30,7 @@ function SignInPage() {
       <div className='picks-container'>
         <FormControl  value={userVal} onChange={e => setUserVal(e.target.value)}  placeholder="email" />
         <div className='button-container'>
-          <Button variant="primary" onClick={handleSignInPress}>Sign In</Button> {' '}
+          <Button variant="primary" onClick={handleSignInPress} id='button' size='lg'>Sign In</Button>
         </div>
       </div>
     </div>

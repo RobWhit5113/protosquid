@@ -4,7 +4,7 @@
 }
 h2,
 h3{
-  color: aliceblue;
+  color: rgb(255,255,255);
 }
 
 .App-container{
@@ -15,6 +15,9 @@ h3{
   height: 100vh;
 
 }
+.page-container {
+  height: 80%;
+}
 
 .header{
   display: flex;
@@ -24,10 +27,19 @@ h3{
   font-family: 'Game of Squids';
 }
 
-
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+}
 
 .title{
-  color: tomato;
+  color: rgb(244,71,134);
+  font-family: 'Game of Squids';
+  margin: 1em;
+  display: flex;
+  justify-content: center;
 }
 
 .picks-container{
@@ -35,6 +47,8 @@ h3{
   flex-direction: column;
   justify-content:center;
   align-items: center ;
+  margin: 3em;
+  /* width: 50vw; */
 }
 
 .button-container{
@@ -44,9 +58,9 @@ h3{
   padding-top: 1em;
 }
 
-.button{  
-  background-color: green;
-  color: black;
+#button{  
+  background-color: rgb(244,71,134);
+  border: rgb(244,71,134);
   cursor: pointer;
 }
 
@@ -63,4 +77,27 @@ h3{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 3em
+}
+
+#team-pick{
+  margin: 1em;
+  width: 30%;
+}
+
+#over-pick{
+  margin: 1em;
+  width: 30%;
+}
+
+#dropdown-basic-button1{
+  background-color: rgb(36,159,156);
+  border: rgb(36,159,156);
+  width: 100%;
+}
+
+#dropdown-basic-button2{
+  background-color: rgb(36,159,156);
+  border: rgb(36,159,156);
+  width: 100%;
 }

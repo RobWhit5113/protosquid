@@ -7,7 +7,8 @@ import Picks1 from './Picks1';
 
 
 function PicksPage() {
-  const [picksVal, setPicksVal] = useState("Please Enter Your Picks");
+  const [picksVal, setPicksVal] = useState("Please Enter The Game");
+  const [picksVal2, setPicksVal2] = useState("Please Enter O/U")
   const [email, setEmail] = useState('')
   const [number, setNumber] = useState(0)
   const [step, setStep] = useState(0)
@@ -24,15 +25,17 @@ function PicksPage() {
 
   const handlePicksEntry = async () => {
     try {
-      if (picksVal !== "Please Enter Your Picks"){
+      if (picksVal !== "Please Enter The Game" && picksVal2 !== "Please Enter O/U"){
       await db('ENTRIES').insert({
         email: email,
         squidnumber: number,
         picks: picksVal,
+        picks2: picksVal2,
         createdAt: moment().format('MM-DD-YYYY HH:mm:ss'),
       }).one()
       
       setPicksVal("");
+      setPicksVal2("");
       setStep(1)} else {
         alert("Please enter your picks")
       }
@@ -51,6 +54,9 @@ function PicksPage() {
   const handleSelect = e => {
   setPicksVal(e)
   }
+  const handleSelect2 = e => {
+  setPicksVal2(e)
+  }
 
   useEffect(()=> {
     getInfo().then(res => {
@@ -63,17 +69,31 @@ function PicksPage() {
     action = 
       <div className='picks-container'>
         <div className='directions-container'>
-          <h3 className='directions'>Please choose a 3-team parlay</h3>
+          <h3 className='directions'>Please enter your selection for Sunday's O/U NFL Game: </h3>
         </div>
-        <div className="dropdown-selector">
-          <DropdownButton id="dropdown-basic-button" title={picksVal} onSelect={handleSelect}>
-            <Dropdown.Item eventKey='pick123'>Action</Dropdown.Item>
-            <Dropdown.Item eventKey='pick456'>Another action</Dropdown.Item>
-            <Dropdown.Item eventKey='pick789'>Something else</Dropdown.Item>
+        <div id='team-pick'className="dropdown-selector">
+          <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
+            <Dropdown.Item eventKey='BAL v CLE (42.5)'>BAL v CLE (42.5)</Dropdown.Item>
+            <Dropdown.Item eventKey='JAC v TEN (44)'>JAC v TEN (44)</Dropdown.Item>
+            <Dropdown.Item eventKey='LA v KC (48.5)'>LV v KC (48.5)</Dropdown.Item>
+            <Dropdown.Item eventKey='NO v NYJ (43.5)'>NO v NYJ (43.5)</Dropdown.Item>
+            <Dropdown.Item eventKey='DAL v WAS (48.5)'>DAL v WAS (48.5)</Dropdown.Item>
+            <Dropdown.Item eventKey='ATL v CAR (42.5)'>ATL v CAR (42.5)</Dropdown.Item>
+            <Dropdown.Item eventKey='SEA v HOU (41.5)'>SEA v HOU (41.5)</Dropdown.Item>
+            <Dropdown.Item eventKey='DET v DEN (42)'>DET v DEN (42)</Dropdown.Item>
+            <Dropdown.Item eventKey='NYG v LAC (44.5)'>NYG v LAC (44.5)</Dropdown.Item>
+            <Dropdown.Item eventKey='SF v CIN (47.5)'>SF v CIN (47.5)</Dropdown.Item>
+            <Dropdown.Item eventKey='BUF v TB (53)'>BUF v TB (53)</Dropdown.Item>
+          </DropdownButton>
+        </div>
+        <div id='over-pick'className="dropdown-selector">
+          <DropdownButton id="dropdown-basic-button2" title={picksVal2} onSelect={handleSelect2} size='lg'>
+            <Dropdown.Item eventKey='Over'>Over</Dropdown.Item>
+            <Dropdown.Item eventKey='Under'>Under</Dropdown.Item>
           </DropdownButton>
         </div>
         <div className='button-container'>
-          <Button variant='primary' className='button' onClick={handlePicksEntry}>Enter Picks</Button>
+          <Button variant='primary' id='button' onClick={handlePicksEntry}>Enter Picks</Button>
         </div>
       </div>
         
@@ -88,7 +108,7 @@ function PicksPage() {
         <h3>Please signout</h3>
       </div>
       <div className='signout-button-container'>
-        <Button variant='primary' className='button' onClick={handleSignOut}>Sign Out </Button>
+        <Button variant='primary' id='button' onClick={handleSignOut}>Sign Out </Button>
       </div>
     </div>
   }
