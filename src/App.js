@@ -1,6 +1,6 @@
 import './App.css';
 import { EasybaseProvider, useEasybase } from 'easybase-react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import ebconfig from './ebconfig';
 import moment from 'moment';
 import SignInPage from './comps/SignInPage';
@@ -19,15 +19,27 @@ function App() {
 }
 
 function Router() {
-  const { isUserSignedIn} = useEasybase();
-  // const today = moment().date()
-  // let picsPage = <PicksPage />
+  const { isUserSignedIn, signOut } = useEasybase();
 
-  // if(today == 7){
-  //   picsPage = <PicksPage1/>
-  // }else{
-  //   picsPage = ''
-  // }
+  //auto logout code
+  const logoutTimerIdRef = useRef(null);
+
+  useEffect(() => {
+    const autoLogout = () => {
+      if (document.visibilityState === 'hidden') {
+        const timeOutId = window.setTimeout(signOut(), 1 * 60 * 1000);
+        logoutTimerIdRef.current = timeOutId;
+      } else {
+        window.clearTimeout(logoutTimerIdRef.current);
+      }
+    };
+
+    document.addEventListener('visibilitychange', autoLogout);
+
+    return () => {
+      document.removeEventListener('visibilitychange', autoLogout);
+    };
+  }, []);
 
   return (
       isUserSignedIn() ?
