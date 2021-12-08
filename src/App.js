@@ -27,7 +27,7 @@ function Router() {
   useEffect(() => {
     const autoLogout = () => {
       if (document.visibilityState === 'hidden') {
-        const timeOutId = window.setTimeout(signOut(), 1 * 60 * 1000);
+        const timeOutId = window.setTimeout(signOut(), 20 * 60 * 1000);
         logoutTimerIdRef.current = timeOutId;
       } else {
         window.clearTimeout(logoutTimerIdRef.current);
@@ -39,7 +39,7 @@ function Router() {
     return () => {
       document.removeEventListener('visibilitychange', autoLogout);
     };
-  }, []);
+  },);
 
   return (
       isUserSignedIn() ?

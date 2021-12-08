@@ -2,9 +2,6 @@ import React, { useState, useEffect, useRef} from 'react';
 import { useEasybase } from "easybase-react";
 import moment from 'moment'
 import { Card, Button, DropdownButton, Dropdown } from 'react-bootstrap';
-import Picks1 from './Picks1';
-
-
 
 function PicksPage() {
   const [picksVal, setPicksVal] = useState("Please Enter The Game");
@@ -15,17 +12,28 @@ function PicksPage() {
   let action = ''
 
   
-  const {signOut, db, getUserAttributes} = useEasybase()
+  const {signOut, db, getUserAttributes, e, useReturn} = useEasybase()
 
-
+  //gets user information from Easybase
   const getInfo = async() => {
     var response = await getUserAttributes()
     return response
   }
 
+  
+
+  //picks submission
   const handlePicksEntry = async () => {
+  //check to see if user has submitted
+  const frame = await db('ENTRIES').return().where(e.eq("email", email)).one();
+  console.log(frame)
+
     try {
-      if (picksVal !== "Please Enter The Game" && picksVal2 !== "Please Enter O/U"){
+      if(frame){
+        alert(`Your picks have already been made! Please signout on the next page and wait for the next email`)
+        setStep(1)
+      }
+      else if (picksVal !== "Please Enter The Game" && picksVal2 !== "Please Enter O/U"){
       await db('ENTRIES').insert({
         email: email,
         squidnumber: number,
@@ -46,11 +54,13 @@ function PicksPage() {
     }
   }
 
+  //signout
   const handleSignOut = () => {
     setStep(0)
     signOut()
   }
 
+  //picks entry
   const handleSelect = e => {
   setPicksVal(e)
   }
@@ -62,9 +72,11 @@ function PicksPage() {
     getInfo().then(res => {
       setEmail(res.email)
       setNumber(res.number)
+      
     })
   },)
 
+  // steps to show the picks or the signout components
   if(step == 0){
     action = 
       <div className='picks-container'>
@@ -97,8 +109,23 @@ function PicksPage() {
         </div>
       </div>
         
-      
-  } else if (step == 1){
+    // } else if (step == 0 && frame) {
+    // action = 
+    // <div className='signout-container'>
+    //   <div className='message-container'>
+    //     <h2>You have already made your selection</h2>
+    //   </div>
+    //   <div>
+    //     {frame.picks},{frame.picks2}
+    //   </div>
+    //   <div className='signout-request-container'>
+    //     <h3>Please signout</h3>
+    //   </div>
+    //   <div className='signout-button-container'>
+    //     <Button variant='primary' id='button' onClick={handleSignOut} size='lg'>Sign Out </Button>
+    //   </div>
+    // </div>
+  }else if (step == 1){
     action = 
     <div className='signout-container'>
       <div className='message-container'>
@@ -113,6 +140,7 @@ function PicksPage() {
     </div>
   }
 
+  //essentially header and action below that
   return (
     <div className='page-container'>
       <div className='header'>
