@@ -108,7 +108,7 @@ function PicksPage() {
         <h3>Please signout</h3>
       </div>
       <div className='signout-button-container'>
-        <Button variant='primary' id='button' onClick={handleSignOut}>Sign Out </Button>
+        <Button variant='primary' id='button' onClick={handleSignOut} size='lg'>Sign Out </Button>
       </div>
     </div>
   }
@@ -117,7 +117,7 @@ function PicksPage() {
     <div className='page-container'>
       <div className='header'>
         <div className='page-players-left'>
-          <Card>
+          <Card className='players-left-card'>
             <Card.Body>100 Players Left</Card.Body>
           </Card>
         </div>
@@ -125,7 +125,7 @@ function PicksPage() {
           <h1 className='title' > Welcome Player #{number}</h1>
         </div>
         <div className='page-jackpot'>
-          <Card>
+          <Card className='jackpot-card'>
             <Card.Body>Jackpot: $1,000</Card.Body>
           </Card>
         </div>
