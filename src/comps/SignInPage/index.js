@@ -10,7 +10,7 @@ function SignInPage() {
   const [userVal, setUserVal] = useState("");
   const [userPas, setUserPas] = useState("Password1")
   
-  const {signIn} = useEasybase()
+  const {signIn, db, e} = useEasybase()
   const clearInputs = () => {
     setUserVal("");
   }

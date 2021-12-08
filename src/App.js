@@ -7,6 +7,7 @@ import SignInPage from './comps/SignInPage';
 import PicksPage from './comps/PicksPage';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Footer from './comps/Footer';
+import BlockedPage from './comps/BlockedPage';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function Router() {
       isUserSignedIn() ?
         <div className='big-container'> 
           <PicksPage />
+          {/* <BlockedPage/> */}
           <Footer />
         </div>
         :

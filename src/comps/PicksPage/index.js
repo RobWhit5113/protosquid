@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef} from 'react';
 import { useEasybase } from "easybase-react";
 import moment from 'moment'
 import { Card, Button, DropdownButton, Dropdown } from 'react-bootstrap';
+import { send } from 'emailjs-com'
 
 function PicksPage() {
   const [picksVal, setPicksVal] = useState("Please Enter The Game");
@@ -9,31 +10,27 @@ function PicksPage() {
   const [email, setEmail] = useState('')
   const [number, setNumber] = useState(0)
   const [step, setStep] = useState(0)
+  // const [toSend, setToSend] = useState({
+  //   from_name:'ProtoProfit',
+  //   message: ''
+  // });
   let action = ''
 
   
-  const {signOut, db, getUserAttributes, e, useReturn} = useEasybase()
+  const {signOut, db, getUserAttributes, e} = useEasybase()
+
 
   //gets user information from Easybase
   const getInfo = async() => {
     var response = await getUserAttributes()
     return response
   }
-
   
-
   //picks submission
   const handlePicksEntry = async () => {
-  //check to see if user has submitted
-  const frame = await db('ENTRIES').return().where(e.eq("email", email)).one();
-  console.log(frame)
 
     try {
-      if(frame){
-        alert(`Your picks have already been made! Please signout on the next page and wait for the next email`)
-        setStep(1)
-      }
-      else if (picksVal !== "Please Enter The Game" && picksVal2 !== "Please Enter O/U"){
+      if (picksVal !== "Please Enter The Game" && picksVal2 !== "Please Enter O/U"){
       await db('ENTRIES').insert({
         email: email,
         squidnumber: number,
@@ -41,16 +38,25 @@ function PicksPage() {
         picks2: picksVal2,
         createdAt: moment().format('MM-DD-YYYY HH:mm:ss'),
       }).one()
-      
+
+      const emailParams = {
+        picksVal,
+        picksVal2,
+        email
+      }
+
+      send('service_bzmlyac', 'template_7llr3mp', emailParams, 'user_O754s7DH7re8j3oRghLIE' )
+
       setPicksVal("");
       setPicksVal2("");
-      setStep(1)} else {
+      setStep(1)} 
+      
+      else {
         alert("Please enter your picks")
       }
 
     } catch (err) {
       console.log(err)
-      alert("Please enter your picks")
     }
   }
 
@@ -64,6 +70,7 @@ function PicksPage() {
   const handleSelect = e => {
   setPicksVal(e)
   }
+
   const handleSelect2 = e => {
   setPicksVal2(e)
   }
@@ -108,23 +115,7 @@ function PicksPage() {
           <Button variant='primary' id='button' onClick={handlePicksEntry}>Enter Picks</Button>
         </div>
       </div>
-        
-    // } else if (step == 0 && frame) {
-    // action = 
-    // <div className='signout-container'>
-    //   <div className='message-container'>
-    //     <h2>You have already made your selection</h2>
-    //   </div>
-    //   <div>
-    //     {frame.picks},{frame.picks2}
-    //   </div>
-    //   <div className='signout-request-container'>
-    //     <h3>Please signout</h3>
-    //   </div>
-    //   <div className='signout-button-container'>
-    //     <Button variant='primary' id='button' onClick={handleSignOut} size='lg'>Sign Out </Button>
-    //   </div>
-    // </div>
+      
   }else if (step == 1){
     action = 
     <div className='signout-container'>
@@ -166,3 +157,15 @@ function PicksPage() {
 
 
 export default PicksPage
+
+// send(
+      //   'SERVICE ID',
+      //   'template_7llr3mp',
+      //   emailParams,
+      //   'user_O754s7DH7re8j3oRghLIE'
+      // ).then((response) => {
+      //   console.log('SUCCESS!', response.status, response.text);
+      //   })
+      // .catch((err) => {
+      //   console.log('FAILED...', err);
+      //   });
