@@ -15,7 +15,7 @@ h3{
 .App-container{
   display: flex;
   justify-content: center;
-  background-color: green;
+  background-color: black;
   width: auto;
   height: 100vh;
 }
