@@ -7,6 +7,11 @@ h3{
   color: rgb(255,255,255);
 }
 
+.social-link{
+  color: black;
+  font-size: large;
+}
+
 .App-container{
   display: flex;
   justify-content: center;
@@ -22,11 +27,13 @@ h3{
   justify-content: space-evenly;
   align-content: center;
 }
-/* .image-container{
+.image-container{
   background: url('./SNF\ 1st\ TD\ Scorer\ 1212\ SUN\ Start\ 815\ PM\ End\ 1159\ PM\ \(2\).png') ;
-  height: auto;
+  background-size:cover;
+  height: 37%;
   width: 50%;
-} */
+  align-self: center;
+}
 
 .blocker-container{
   height: 93%;

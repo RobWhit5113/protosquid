@@ -158,14 +158,3 @@ function PicksPage() {
 
 export default PicksPage
 
-// send(
-      //   'SERVICE ID',
-      //   'template_7llr3mp',
-      //   emailParams,
-      //   'user_O754s7DH7re8j3oRghLIE'
-      // ).then((response) => {
-      //   console.log('SUCCESS!', response.status, response.text);
-      //   })
-      // .catch((err) => {
-      //   console.log('FAILED...', err);
-      //   });
