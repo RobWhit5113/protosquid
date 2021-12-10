@@ -86,6 +86,7 @@ function PicksPage() {
   // steps to show the picks or the signout components
   if(step == 0){
     action = 
+    ///////////////////////////////////day 1//////////////////////////////////////////////////////////////////
       <div className='picks-container'>
         <div className='directions-container'>
           <h3 className='directions'>Please enter your selection for Sunday's O/U NFL Game: </h3>
