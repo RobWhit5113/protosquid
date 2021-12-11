@@ -6,14 +6,11 @@ import { send } from 'emailjs-com'
 
 function PicksPage() {
   const [picksVal, setPicksVal] = useState("Please Enter The Game");
-  const [picksVal2, setPicksVal2] = useState("Please Enter O/U")
+  const [picksVal2, setPicksVal2] = useState("Please Enter O/U");
+  // const [picksVal3, setPicksVal3] = useState("Please Choose a Team");
   const [email, setEmail] = useState('')
   const [number, setNumber] = useState(0)
   const [step, setStep] = useState(0)
-  // const [toSend, setToSend] = useState({
-  //   from_name:'ProtoProfit',
-  //   message: ''
-  // });
   let action = ''
 
   
@@ -36,6 +33,7 @@ function PicksPage() {
         squidnumber: number,
         picks: picksVal,
         picks2: picksVal2,
+        // picks3: picksVal3,
         createdAt: moment().format('MM-DD-YYYY HH:mm:ss'),
       }).one()
 
@@ -74,6 +72,9 @@ function PicksPage() {
   const handleSelect2 = e => {
   setPicksVal2(e)
   }
+  // const handleSelect3 = e => {
+  // setPicksVal3(e)
+  // }
 
   useEffect(()=> {
     getInfo().then(res => {
@@ -116,6 +117,106 @@ function PicksPage() {
           <Button variant='primary' id='button' onClick={handlePicksEntry}>Enter Picks</Button>
         </div>
       </div>
+      ///////////////////////////////////day 2//////////////////////////////////////////////////////////////////
+      // <div className='picks-container'>
+      //   <div className='directions-container'>
+      //     <h3 className='directions'>Please enter your selection for Monday's MNF Winner: </h3>
+      //   </div>
+      //   <div id='team-pick'className="dropdown-selector">
+      //     <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
+      //       <Dropdown.Item eventKey='LAR'>LAR</Dropdown.Item>
+      //       <Dropdown.Item eventKey='ARI'>ARI</Dropdown.Item>
+      //     </DropdownButton>
+      //   </div>
+      //   {/* CHANGE OVER CHECKLIST
+      //       comment out uneeded picksVals
+      //       Check state values
+      //       Check the submit handler
+      //       Run a test pick
+      //       Run a false test pick 
+      //       Check the email picks*/}
+      //   <div className='button-container'>
+      //     <Button variant='primary' id='button' onClick={handlePicksEntry}>Enter Picks</Button>
+      //   </div>
+      // </div>
+      ///////////////////////////////////day 3//////////////////////////////////////////////////////////////////
+      // <div className='picks-container'>
+      //   <div className='directions-container'>
+      //     <h3 className='directions'>Please enter your selection for Wednesday's 3-Leg Bball Parlay: </h3>
+      //   </div>
+      //   <div id='team-pick'className="dropdown-selector">
+      //      <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
+      //        <Dropdown.Item eventKey='BAL v CLE (42.5)'>BAL v CLE (42.5)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='JAC v TEN (44)'>JAC v TEN (44)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='LA v KC (48.5)'>LV v KC (48.5)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='NO v NYJ (43.5)'>NO v NYJ (43.5)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='DAL v WAS (48.5)'>DAL v WAS (48.5)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='ATL v CAR (42.5)'>ATL v CAR (42.5)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='SEA v HOU (41.5)'>SEA v HOU (41.5)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='DET v DEN (42)'>DET v DEN (42)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='NYG v LAC (44.5)'>NYG v LAC (44.5)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='SF v CIN (47.5)'>SF v CIN (47.5)</Dropdown.Item>
+      //        <Dropdown.Item eventKey='BUF v TB (53)'>BUF v TB (53)</Dropdown.Item>
+      //      </DropdownButton>
+      //    </div>
+      //    <div id='over-pick'className="dropdown-selector">
+      //      <DropdownButton id="dropdown-basic-button2" title={picksVal2} onSelect={handleSelect2} size='lg'>
+      //        <Dropdown.Item eventKey='Over'>Over</Dropdown.Item>
+      //        <Dropdown.Item eventKey='Under'>Under</Dropdown.Item>
+      //      </DropdownButton>
+      //    </div>
+      //    <div id='over-pick'className="dropdown-selector">
+      //      <DropdownButton id="dropdown-basic-button2" title={picksVal3} onSelect={handleSelect3} size='lg'>
+      //        <Dropdown.Item eventKey='Over'>Over</Dropdown.Item>
+      //        <Dropdown.Item eventKey='Under'>Under</Dropdown.Item>
+      //      </DropdownButton>
+      //    </div>
+      //   {/* CHANGE OVER CHECKLIST
+      //       comment out uneeded picksVals
+      //       Check state values
+      //       Check the submit handler
+      //       Run a test pick
+      //       Run a false test pick 
+      //       Check the email picks*/}
+      //   <div className='button-container'>
+      //     <Button variant='primary' id='button' onClick={handlePicksEntry}>Enter Picks</Button>
+      //   </div>
+      // </div>
+      ///////////////////////////////////day 4//////////////////////////////////////////////////////////////////
+      // <div className='picks-container'>
+      //   <div className='directions-container'>
+      //     <h3 className='directions'>Please enter your selection for TNF Anytime TD Scorer: </h3>
+      //   </div>
+      //   <div id='team-pick'className="dropdown-selector">
+      //     <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
+      //       <Dropdown.Item eventKey='Travis Kelce'>Travis Kelce</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Tyreek Hill'>Tyreek Hill</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Clyde Edwards-Helaire'>Clyde Edwards-Helaire</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Darrel Williams'>Darrel Williams</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Mecole Hardman'>Mecole Hardman</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Byron Pringle'>Byron Pringle</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Demarcus Robinson'>Demarcus Robinson</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Austin Ekeler'>Austin Ekeler</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Justin Jackson'>Justin Jackson</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Keenan Allen'>Keenan Allen</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Mike Williams'>Mike Williams</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Donald Parham Jr.'>Donald Parham Jr.</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Jared Cook'>Jared Cook</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Jalen Guyton'>Jalen Guyton</Dropdown.Item>
+      //       <Dropdown.Item eventKey='Joshua Palmer'>Joshua Palmer</Dropdown.Item>
+      //     </DropdownButton>
+      //   </div>
+      //   {/* CHANGE OVER CHECKLIST
+      //       comment out uneeded picksVals
+      //       Check state values
+      //       Check the submit handler
+      //       Run a test pick
+      //       Run a false test pick 
+      //       Check the email picks*/}
+      //   <div className='button-container'>
+      //     <Button variant='primary' id='button' onClick={handlePicksEntry}>Enter Picks</Button>
+      //   </div>
+      // </div>
       
   }else if (step == 1){
     action = 
