@@ -27,8 +27,6 @@ function SignInPage() {
       <div className='sign-header'>
         <h1 className='title'>proto profit's squid game</h1>
       </div>
-      <div className='image-container'>
-      </div>
       <div className='email-container'>
         <FormControl  value={userVal} onChange={e => setUserVal(e.target.value)}  placeholder="email" />
         <div className='button-container'>

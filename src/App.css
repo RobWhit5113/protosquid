@@ -27,13 +27,13 @@ h3{
   justify-content: space-evenly;
   align-content: center;
 }
-.image-container{
+/* .image-container{
   background: url('./ProtoProfitsgame.png') ;
   background-size:cover;
   height: 37%;
   width: 50%;
   align-self: center;
-}
+} */
 
 .blocker-container{
   height: 93%;
