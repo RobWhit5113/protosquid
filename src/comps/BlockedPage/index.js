@@ -13,7 +13,7 @@ function BlockedPage () {
   return(
       <div className='blocker-container'>
         <div className='message-container'>
-          <h2>The Window Has Been Closed</h2>
+          <h2>The Window Is Closed</h2>
         </div>
         <div className='signout-request-container'>
           <h3>Please signout</h3>

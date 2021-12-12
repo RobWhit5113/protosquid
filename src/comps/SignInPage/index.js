@@ -25,11 +25,13 @@ function SignInPage() {
   return (
     <div className='page-container'>
       <div className='sign-header'>
-        <h1 className='title'>proto profit's squid game</h1>
+        <h1 className='title'>proto profit's </h1>
+        <h1 className='title'> squid game </h1>
       </div>
+
       <div className='email-container'>
         <FormControl  value={userVal} onChange={e => setUserVal(e.target.value)}  placeholder="email" />
-        <div className='button-container'>
+        <div className='signin-button-container'>
           <Button variant="primary" onClick={handleSignInPress} id='button' size='lg'>Sign In</Button>
         </div>
       </div>
