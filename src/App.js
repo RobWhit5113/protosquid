@@ -46,8 +46,8 @@ function Router() {
       isUserSignedIn() ?
         <div className='big-container'> 
           <PicksPage />
-          {/* <BlockedPage/> */}
-          <Footer />
+          <BlockedPage/>
+          {/* <Footer /> */}
         </div>
         :
         <div className='big-container'>
