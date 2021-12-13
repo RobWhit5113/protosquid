@@ -105,14 +105,14 @@ h3{
   justify-content: center;
   align-items:center;
   padding-top: 1em;
-  width: 70%;
+  width: 80%;
 }
 
 #button{  
   background-color: rgb(244,71,134);
   border: rgb(244,71,134);
   cursor: pointer;
-  width: 80%;
+  width: 100%;
 }
 
 .page-title{
