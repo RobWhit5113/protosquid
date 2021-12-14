@@ -124,7 +124,19 @@ h3{
   width: 90%;
   display: contents;
 }
+.directions2-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+}
 
+.games-list{
+  width: 80%;
+  align-self: center;
+}
 .message-container,
 .signout-request-container{
   display: flex;
@@ -164,8 +176,8 @@ h3{
 }
 
 .signout-button-container{
-  width: 100%;
-  display: contents;
+  width: 50%;
+  display: flex;
 }
 
 
