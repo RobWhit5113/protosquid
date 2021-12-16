@@ -5,7 +5,7 @@ import { Card, Button, DropdownButton, Dropdown, ListGroup, ButtonGroup } from '
 import { send } from 'emailjs-com'
 
 function PicksPage() {
-  const [picksVal, setPicksVal] = useState("Choose Winner");
+  const [picksVal, setPicksVal] = useState("Choose Player");
   // const [picksVal2, setPicksVal2] = useState("Choose Winner");
   // const [picksVal3, setPicksVal3] = useState("Please Choose a Team");
   
@@ -28,7 +28,7 @@ function PicksPage() {
   const handlePicksEntry = async () => {
     console.log(picksVal)
     try {
-      if (picksVal !== "Choose Game"){
+      if (picksVal !== "Choose Player"){
       await db('ENTRIES').insert({
         email: email,
         squidnumber: number,
