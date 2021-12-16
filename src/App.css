@@ -120,9 +120,10 @@ h3{
 }
 
 .directions-container{
-  text-align: center;
-  width: 90%;
-  display: contents;
+    text-align: center;
+    width: 90%;
+    display: flex;
+    align-self: center;
 }
 .directions2-container{
   display: flex;
