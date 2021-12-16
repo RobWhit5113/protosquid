@@ -136,7 +136,10 @@ h3{
 .games-list{
   width: 80%;
   align-self: center;
+  display: flex;
+  justify-content: center;
 }
+
 .message-container,
 .signout-request-container{
   display: flex;

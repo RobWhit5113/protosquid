@@ -183,12 +183,70 @@ function PicksPage() {
       //   </div>
       // </>
       ///////////////////////////////////day 3//////////////////////////////////////////////////////////////////
-    <>
+    // <>
       
-      <div className='page-title'>
-        <h1 className='title' > Welcome Player #{number}</h1>
-       </div>
-       <div className='header'>
+    //   <div className='page-title'>
+    //     <h1 className='title' > Welcome Player #{number}</h1>
+    //    </div>
+    //    <div className='header'>
+    //     <div className='page-players-left'>
+    //       <Card className='players-left-card'>
+    //         <Card.Body>6 Players Left</Card.Body>
+    //       </Card>
+    //     </div>
+    //     <div className='page-jackpot'>
+    //       <Card className='jackpot-card'>
+    //         <Card.Body>Jackpot: $1,000</Card.Body>
+    //       </Card>
+    //     </div>
+    //   </div>
+    //   <div className='directions2-container'>
+    //     <h5 className='directions'>NBA Games Tonight:</h5>
+    //     <ListGroup horizontal={'sm'} className='games-list'>
+    //       <ListGroup.Item>TOR v BKN</ListGroup.Item>
+    //       <ListGroup.Item>GS v NYK</ListGroup.Item>
+    //       <ListGroup.Item>PHX v POR</ListGroup.Item>
+    //     </ListGroup>
+    //  </div>
+    //   <div className='directions-container'>
+    //     <h3 className='directions'>Please enter your selection for Tuesday's NBA Winner: </h3>
+    //  </div>
+    //   <div className='picks-container'>
+    //     <div id='team-pick'className="dropdown-selector">
+    //        <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
+    //          <Dropdown.Item eventKey='TOR'>TOR</Dropdown.Item>
+    //          <Dropdown.Item eventKey='BKN'>BKN</Dropdown.Item>
+    //          <Dropdown.Item eventKey='GS'>GS</Dropdown.Item>
+    //          <Dropdown.Item eventKey='NYK'>NYK</Dropdown.Item>
+    //          <Dropdown.Item eventKey='PHX'>PHX</Dropdown.Item>
+    //          <Dropdown.Item eventKey='POR'>POR</Dropdown.Item>
+    //        </DropdownButton>
+    //      </div>
+        //  MIGHT JUST BE ONE SELECTION  
+        //  <div id='over-pick'className="dropdown-selector">
+        //    <DropdownButton id="dropdown-basic-button2" title={picksVal2} onSelect={handleSelect2} size='lg'>
+        //      <Dropdown.Item eventKey={pickChoice1}>Over</Dropdown.Item>
+        //      <Dropdown.Item eventKey={pickChoice2}>Under</Dropdown.Item>
+        //    </DropdownButton>
+        //  </div> 
+        // CHANGE OVER CHECKLIST
+        //     comment out uneeded picksVals
+        //     Check state values
+        //     Check the submit handler
+        //     Run a test pick
+        //     Run a false test pick 
+        //     Check the email picks
+    //     <div className='enter-picks-button-container'>
+    //       <Button variant='primary' id='button' onClick={handlePicksEntry}>Enter Picks</Button>
+    //     </div>
+    //   </div>
+    // </>
+      ///////////////////////////////////day 4//////////////////////////////////////////////////////////////////
+    <>
+    <div className='page-title'>
+      <h1 className='title' > Welcome Player #{number}</h1>
+    </div>
+      <div className='header'>
         <div className='page-players-left'>
           <Card className='players-left-card'>
             <Card.Body>6 Players Left</Card.Body>
@@ -200,82 +258,46 @@ function PicksPage() {
           </Card>
         </div>
       </div>
-      <div className='directions2-container'>
-        <h5 className='directions'>NBA Games Tonight:</h5>
-        <ListGroup horizontal={'sm'} className='games-list'>
-          <ListGroup.Item>TOR v BKN</ListGroup.Item>
-          <ListGroup.Item>GS v NYK</ListGroup.Item>
-          <ListGroup.Item>PHX v POR</ListGroup.Item>
-        </ListGroup>
-     </div>
-      <div className='directions-container'>
-        <h3 className='directions'>Please enter your selection for Wednesday's NBA Winner: </h3>
-     </div>
-      <div className='picks-container'>
-        <div id='team-pick'className="dropdown-selector">
-           <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
-             <Dropdown.Item eventKey='TOR'>TOR</Dropdown.Item>
-             <Dropdown.Item eventKey='BKN'>BKN</Dropdown.Item>
-             <Dropdown.Item eventKey='GS'>GS</Dropdown.Item>
-             <Dropdown.Item eventKey='NYK'>NYK</Dropdown.Item>
-             <Dropdown.Item eventKey='PHX'>PHX</Dropdown.Item>
-             <Dropdown.Item eventKey='POR'>POR</Dropdown.Item>
-           </DropdownButton>
-         </div>
-         {/* MIGHT JUST BE ONE SELECTION  */}
-         {/* <div id='over-pick'className="dropdown-selector">
-           <DropdownButton id="dropdown-basic-button2" title={picksVal2} onSelect={handleSelect2} size='lg'>
-             <Dropdown.Item eventKey={pickChoice1}>Over</Dropdown.Item>
-             <Dropdown.Item eventKey={pickChoice2}>Under</Dropdown.Item>
-           </DropdownButton>
-         </div> */}
-        {/* CHANGE OVER CHECKLIST
-            comment out uneeded picksVals
-            Check state values
-            Check the submit handler
-            Run a test pick
-            Run a false test pick 
-            Check the email picks*/}
-        <div className='enter-picks-button-container'>
-          <Button variant='primary' id='button' onClick={handlePicksEntry}>Enter Picks</Button>
-        </div>
+    <div className='directions-container'>
+      <h3 className='directions'>Please enter your selection for Thursday's Anytime TD Scorer: </h3>
+    </div>
+    <div className='picks-container'>
+      <div id='team-pick'className="dropdown-selector">
+        <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
+          <Dropdown.Item eventKey='Austin Ekeler' style={{background:'rgb(0,128,198)', color:'white'}}>Austin Ekeler</Dropdown.Item>
+          <Dropdown.Item eventKey='Tyreek Hill' style={{background:'rgb(227,24,55)', color:'white'}}>Tyreek Hill</Dropdown.Item>
+          <Dropdown.Item eventKey='Clyde Edwards-Helaire' style={{background:'rgb(227,24,55)', color:'white'}}>Clyde Edwards-Helaire</Dropdown.Item>
+          <Dropdown.Item eventKey='Travis Kelce' style={{background:'rgb(227,24,55)', color:'white'}}>Travis Kelce</Dropdown.Item>
+          <Dropdown.Item eventKey='Keenan Allen' style={{background:'rgb(0,128,198)', color:'white'}}>Keenan Allen</Dropdown.Item>
+          <Dropdown.Item eventKey='Mike Williams' style={{background:'rgb(0,128,198)', color:'white'}}>Mike Williams</Dropdown.Item>
+          <Dropdown.Item eventKey='Darrel Williams' style={{background:'rgb(227,24,55)', color:'white'}}>Darrel Williams</Dropdown.Item>
+          <Dropdown.Item eventKey='Jalen Guyton' style={{background:'rgb(0,128,198)', color:'white'}}>Jalen Guyton</Dropdown.Item>
+          <Dropdown.Item eventKey='Jared Cook' style={{background:'rgb(0,128,198)', color:'white'}}>Jared Cook</Dropdown.Item>
+          <Dropdown.Item eventKey='Patrick Mahomes' style={{background:'rgb(227,24,55)', color:'white'}}>Patrick Mahomes</Dropdown.Item>
+          <Dropdown.Item eventKey='Mecole Hardman' style={{background:'rgb(227,24,55)', color:'white'}}>Mecole Hardman</Dropdown.Item>
+          <Dropdown.Item eventKey='Byron Pringle' style={{background:'rgb(227,24,55)', color:'white'}}>Byron Pringle</Dropdown.Item>
+          <Dropdown.Item eventKey='KC Defense' style={{background:'rgb(227,24,55)', color:'white'}}>KC Defense</Dropdown.Item>
+          <Dropdown.Item eventKey='Justin Herbert' style={{background:'rgb(0,128,198)', color:'white'}}>Justin Herbert</Dropdown.Item>
+          <Dropdown.Item eventKey='Joshua Palmer' style={{background:'rgb(0,128,198)', color:'white'}}>Joshua Palmer</Dropdown.Item>
+          <Dropdown.Item eventKey='Demarcus Robinson' style={{background:'rgb(227,24,55)', color:'white'}}>Demarcus Robinson</Dropdown.Item>
+          <Dropdown.Item eventKey='Justin Jackson' style={{background:'rgb(0,128,198)', color:'white'}}>Justin Jackson</Dropdown.Item>
+          <Dropdown.Item eventKey='Donald Parham Jr.' style={{background:'rgb(0,128,198)', color:'white'}}>Donald Parham Jr.</Dropdown.Item>
+          <Dropdown.Item eventKey='LAC Defense' style={{background:'rgb(0,128,198)', color:'white'}}>LAC Defense</Dropdown.Item>
+        </DropdownButton>
       </div>
-    </>
-      /* ///////////////////////////////////day 4//////////////////////////////////////////////////////////////////
-      // <div className='picks-container'>
-      //   <div className='directions-container'>
-      //     <h3 className='directions'>Please enter your selection for TNF Anytime TD Scorer: </h3>
-      //   </div>
-      //   <div id='team-pick'className="dropdown-selector">
-      //     <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
-      //       <Dropdown.Item eventKey='Travis Kelce'>Travis Kelce</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Tyreek Hill'>Tyreek Hill</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Clyde Edwards-Helaire'>Clyde Edwards-Helaire</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Darrel Williams'>Darrel Williams</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Mecole Hardman'>Mecole Hardman</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Byron Pringle'>Byron Pringle</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Demarcus Robinson'>Demarcus Robinson</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Austin Ekeler'>Austin Ekeler</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Justin Jackson'>Justin Jackson</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Keenan Allen'>Keenan Allen</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Mike Williams'>Mike Williams</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Donald Parham Jr.'>Donald Parham Jr.</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Jared Cook'>Jared Cook</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Jalen Guyton'>Jalen Guyton</Dropdown.Item>
-      //       <Dropdown.Item eventKey='Joshua Palmer'>Joshua Palmer</Dropdown.Item>
-      //     </DropdownButton>
-      //   </div>
-      //   {/* CHANGE OVER CHECKLIST
-      //       comment out uneeded picksVals
-      //       Check state values
-      //       Check the submit handler
-      //       Run a test pick
-      //       Run a false test pick 
-      //       Check the email picks*/
-      /* //   <div className='button-container'>
-      //     <Button variant='primary' id='button' onClick={handlePicksEntry}>Enter Picks</Button>
-      //   </div>
-      // </div> */
+          {/* CHANGE OVER CHECKLIST
+              comment out uneeded picksVals
+              Check state values
+              Check the submit handler
+              Run a test pick
+              Run a false test pick
+              Change Email 
+          Check the email picks*/}
+          <div className='enter-picks-button-container'>
+            <Button variant='primary' id='button' onClick={handlePicksEntry} size='lg'>Enter Picks</Button>
+          </div>
+        </div>
+      </>
       
   }else if (step == 1){
     action = 
