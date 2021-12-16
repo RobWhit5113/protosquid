@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef} from 'react';
 import { useEasybase } from "easybase-react";
 import moment from 'moment'
-import { Card, Button, DropdownButton, Dropdown, ListGroup } from 'react-bootstrap';
+import { Card, Button, DropdownButton, Dropdown, ListGroup, ButtonGroup } from 'react-bootstrap';
 import { send } from 'emailjs-com'
 
 function PicksPage() {
@@ -26,7 +26,7 @@ function PicksPage() {
   
   //picks submission
   const handlePicksEntry = async () => {
-
+    console.log(picksVal)
     try {
       if (picksVal !== "Choose Game"){
       await db('ENTRIES').insert({
@@ -67,7 +67,8 @@ function PicksPage() {
 
   //picks entry
   const handleSelect = (e) => {
-   setPicksVal(e)
+   setPicksVal(e.target.value)
+   console.log(picksVal)
   
   }
 
@@ -261,7 +262,7 @@ function PicksPage() {
     <div className='directions-container'>
       <h3 className='directions'>Please enter your selection for Thursday's Anytime TD Scorer: </h3>
     </div>
-    <div className='picks-container'>
+    <div className='picks-container-buttons'>
       <div id='team-pick'className="dropdown-selector">
         <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
           <Dropdown.Item eventKey='Austin Ekeler' style={{background:'rgb(0,128,198)', color:'white'}}>Austin Ekeler</Dropdown.Item>
@@ -276,15 +277,36 @@ function PicksPage() {
           <Dropdown.Item eventKey='Patrick Mahomes' style={{background:'rgb(227,24,55)', color:'white'}}>Patrick Mahomes</Dropdown.Item>
           <Dropdown.Item eventKey='Mecole Hardman' style={{background:'rgb(227,24,55)', color:'white'}}>Mecole Hardman</Dropdown.Item>
           <Dropdown.Item eventKey='Byron Pringle' style={{background:'rgb(227,24,55)', color:'white'}}>Byron Pringle</Dropdown.Item>
-          <Dropdown.Item eventKey='KC Defense' style={{background:'rgb(227,24,55)', color:'white'}}>KC Defense</Dropdown.Item>
           <Dropdown.Item eventKey='Justin Herbert' style={{background:'rgb(0,128,198)', color:'white'}}>Justin Herbert</Dropdown.Item>
-          <Dropdown.Item eventKey='Joshua Palmer' style={{background:'rgb(0,128,198)', color:'white'}}>Joshua Palmer</Dropdown.Item>
           <Dropdown.Item eventKey='Demarcus Robinson' style={{background:'rgb(227,24,55)', color:'white'}}>Demarcus Robinson</Dropdown.Item>
           <Dropdown.Item eventKey='Justin Jackson' style={{background:'rgb(0,128,198)', color:'white'}}>Justin Jackson</Dropdown.Item>
           <Dropdown.Item eventKey='Donald Parham Jr.' style={{background:'rgb(0,128,198)', color:'white'}}>Donald Parham Jr.</Dropdown.Item>
-          <Dropdown.Item eventKey='LAC Defense' style={{background:'rgb(0,128,198)', color:'white'}}>LAC Defense</Dropdown.Item>
         </DropdownButton>
       </div>
+      {/* <ButtonGroup style={{margin: '4px 2px', width:'100%', height:'20%'}}>
+        <Button onClick={handleSelect} value='A. Ekeler'style={{background:'rgb(0,128,198)', color:'white', width:'25%', height:'100%'}}>A. Ekeler   </Button>
+        <Button onClick={handleSelect} value='T. Hill'style={{background:'rgb(227,24,55)', color:'white', marginRight:'1px'}}>T. Hill  </Button>
+        <Button onClick={handleSelect} value='K. Allen'style={{background:'rgb(0,128,198)', color:'white', marginRight:'1px'}}>K. Allen  </Button>
+        <Button onClick={handleSelect} value='C.E. Helaire'style={{background:'rgb(227,24,55)', color:'white', marginRight:'1px'}}>C.E. Helaire  </Button>
+      </ButtonGroup>
+      <ButtonGroup style={{margin: '4px 2px', width:'100%'}}>
+        <Button onClick={handleSelect} value='M. Williams'style={{background:'rgb(0,128,198)', color:'white', marginRight:'1px'}}>M. Williams</Button>
+        <Button onClick={handleSelect} value='T. Kelce'style={{background:'rgb(227,24,55)', color:'white', marginRight:'1px'}}>T. Kelce</Button>
+        <Button onClick={handleSelect} value='J. Guyton'style={{background:'rgb(0,128,198)', color:'white', marginRight:'1px'}}>J. Guyton</Button>
+        <Button onClick={handleSelect} value='Da. Williams'style={{background:'rgb(227,24,55)', color:'white', marginRight:'1px'}}>Da. Williams</Button>
+      </ButtonGroup>
+      <ButtonGroup style={{margin: '4px 2px', width:'100%'}}>
+        <Button onClick={handleSelect} value='J. Herbert'style={{background:'rgb(0,128,198)', color:'white', marginRight:'1px'}}>J. Herbert</Button>
+        <Button onClick={handleSelect} value='P. Mahomes'style={{background:'rgb(227,24,55)', color:'white', marginRight:'1px'}}>P. Mahomes</Button>
+        <Button onClick={handleSelect} value='J. Palmer'style={{background:'rgb(0,128,198)', color:'white', marginRight:'1px'}}>J. Palmer</Button>
+        <Button onClick={handleSelect} value='M. Hardman'style={{background:'rgb(227,24,55)', color:'white', marginRight:'1px'}}>M. Hardman</Button>
+      </ButtonGroup>
+      <ButtonGroup style={{margin: '4px 2px', width:'100%'}}>
+        <Button onClick={handleSelect} value='J. Jackson'style={{background:'rgb(0,128,198)', color:'white', marginRight:'1px'}}>J. Jackson</Button>
+        <Button onClick={handleSelect} value='D. Robinson'style={{background:'rgb(227,24,55)', color:'white', marginRight:'1px'}}>D. Robinson</Button>
+        <Button onClick={handleSelect} value='D. Parham'style={{background:'rgb(0,128,198)', color:'white', marginRight:'1px'}}>D. Parham</Button>
+        <Button onClick={handleSelect} value='B. Pringle'style={{background:'rgb(227,24,55)', color:'white', marginRight:'1px'}}>B. Pringle</Button>
+      </ButtonGroup> */}
           {/* CHANGE OVER CHECKLIST
               comment out uneeded picksVals
               Check state values

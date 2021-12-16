@@ -132,7 +132,12 @@ h3{
   text-align: center;
   width: 100%;
 }
-
+.picks-container-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center ;
+}
 .games-list{
   width: 80%;
   align-self: center;
