@@ -298,7 +298,7 @@ function PicksPage() {
       <div className='header'>
         <div className='page-players-left'>
           <Card className='players-left-card'>
-            <Card.Body>6 Players Left</Card.Body>
+            <Card.Body>5 Players Left</Card.Body>
           </Card>
         </div>
         <div className='page-jackpot'>
