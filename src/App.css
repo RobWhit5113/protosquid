@@ -124,6 +124,7 @@ h3{
     width: 90%;
     display: flex;
     align-self: center;
+    justify-content: center;
 }
 .directions2-container{
   display: flex;
