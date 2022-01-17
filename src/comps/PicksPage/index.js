@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom'
 import { useEasybase } from "easybase-react";
 import moment from 'moment'
 import { Card, Button, DropdownButton, Dropdown, ListGroup, ButtonGroup } from 'react-bootstrap';
 import { send } from 'emailjs-com'
 
 function PicksPage() {
+  const navigate = useNavigate()
   const [picksVal, setPicksVal] = useState("Choose Selection");
   // const [picksVal2, setPicksVal2] = useState("Choose Option");
   // const [picksVal3, setPicksVal3] = useState("Please Choose a Team");
@@ -15,7 +17,7 @@ function PicksPage() {
   let action = ''
 
   
-  const {signOut, db, getUserAttributes, e} = useEasybase()
+  const {db, getUserAttributes, e} = useEasybase()
 
 
   //gets user information from Easybase
@@ -26,7 +28,6 @@ function PicksPage() {
   
   //picks submission
   const handlePicksEntry = async () => {
-    console.log(picksVal)
     try {
       if (picksVal !== "Choose Selection"){
       await db('ENTRIES').insert({
@@ -48,8 +49,9 @@ function PicksPage() {
 
       setPicksVal("");
       // setPicksVal2("");
-      setStep(1)} 
       
+      navigate('/signout')
+    }
       else {
         alert("Please enter your picks and follow directions")
       }
@@ -59,11 +61,7 @@ function PicksPage() {
     }
   }
 
-  //signout
-  const handleSignOut = () => {
-    setStep(0)
-    signOut()
-  }
+
 
   //picks entry
   const handleSelect = (e) => {
@@ -88,8 +86,8 @@ function PicksPage() {
   },)
 
   // steps to show the picks or the signout components
-  if(step == 0){
-    action = 
+  // if(step == 0){
+  //   action = 
     ///////////////////////////////////day 1//////////////////////////////////////////////////////////////////
       // <>
       //   <div className='page-title'>
@@ -322,8 +320,12 @@ function PicksPage() {
     //       </div>
     //     </div>
     //   </>
-            ///////////////////////////////////day 6//////////////////////////////////////////////////////////////////
-    <>
+            ///////////////////////////////////day 6/////////////////////////////////////////////////////////////////
+  
+
+  //essentially header and action below that
+  return (
+  <div className='page-container'>
     <div className='page-title'>
       <h1 className='title' > Welcome Player #{number}</h1>
     </div>
@@ -352,29 +354,8 @@ function PicksPage() {
           <div className='enter-picks-button-container'>
             <Button variant='primary' id='button' onClick={handlePicksEntry} size='lg'>Enter Picks</Button>
           </div>
-        </div>
-      </>
-
-  }else if (step == 1){
-    action = 
-    <div className='signout-container'>
-      <div className='message-container'>
-        <h2>Thank you for your entry, good luck</h2>
-      </div>
-      <div className='signout-request-container'>
-        <h3>Please signout</h3>
-      </div>
-      <div className='signout-button-container'>
-        <Button variant='primary' id='button' onClick={handleSignOut} size='lg'>Sign Out </Button>
-      </div>
     </div>
-  }
-
-  //essentially header and action below that
-  return (
-    <div className='page-container'>
-      {action}
-    </div>
+  </div>
   )
 }
 

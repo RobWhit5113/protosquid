@@ -8,7 +8,7 @@ import PicksPage from './comps/PicksPage';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Footer from './comps/Footer';
 import BlockedPage from './comps/BlockedPage';
-import Splash from './comps/Splash'
+import Success from './comps/Success'
 
 function App() {
   return (
@@ -99,7 +99,8 @@ function Router() {
       color: 'rgb(36,159,156)'
     },
     headerText:{
-      fontSize: 36
+      fontSize: 36,
+      color: 'rgb(244,71,134)',
     }
     
   }
@@ -123,9 +124,9 @@ function Router() {
 
   return (
     <div className='big-container'> 
-      <Auth theme="minimal-dark" customStyles={myStyle} dictionary={{
+      {/* <Auth theme="minimal-dark" customStyles={myStyle} dictionary={{
         signInHeader: "ProtoProfit's Squid Game",
-      }}>
+      }}> */}
         <Routes>
           {/* <Route path="/login"> */}
             {/* <SignInPage /> */}
@@ -133,17 +134,17 @@ function Router() {
           {/* <Route path='/signup'> */}
             {/* <SignUpPage /> */}
           {/* </Route> */}
-          <Route path='/picks' element={<PicksPage />}>
+          <Route path='/signout' element={<Success />}>
             {/* <PicksPage /> */}
           </Route>
           <Route path='/closed' element={<BlockedPage />}>
             {/* <BlockedPage /> */}
           </Route> 
-          <Route exact path='/' element={<Splash />}>
+          <Route exact path='/' element={<PicksPage />}>
             {/* <Splash /> */}
           </Route>
         </Routes>
-      </Auth>
+      {/* </Auth> */}
       <Footer />
     </div>
   )
