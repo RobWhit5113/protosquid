@@ -326,34 +326,30 @@ function PicksPage() {
   //essentially header and action below that
   return (
   <div className='page-container'>
-    <div className='page-title'>
-      <h1 className='title' > Welcome Player #{number}</h1>
-    </div>
       <div className='header'>
-        <div className='page-players-left'>
-          <Card className='players-left-card'>
-            <Card.Body>1 Player Left</Card.Body>
-          </Card>
-        </div>
-        <div className='page-jackpot'>
-          <Card className='jackpot-card'>
-            <Card.Body>Jackpot: $1,000</Card.Body>
-          </Card>
-        </div>
-      </div>
-    <div className='directions-container'>
-      <h3 className='directions'>Will Mike Evans Score A TD Tonight? </h3>
-    </div>
-    <div className='picks-container-buttons'>
-      <div id='team-pick'className="dropdown-selector">
-        <DropdownButton id="dropdown-basic-button1" title={picksVal} onSelect={handleSelect} size='lg'>
-          <Dropdown.Item eventKey='Yes'>Yes</Dropdown.Item>
-          <Dropdown.Item eventKey='No'>No</Dropdown.Item>
-        </DropdownButton>
-      </div>
-          <div className='enter-picks-button-container'>
-            <Button variant='primary' id='button' onClick={handlePicksEntry} size='lg'>Enter Picks</Button>
+        <div className='header-cards'>
+          <div className='page-players-left'>
+            <Card className='players-left-card'>
+              <Card.Body>1 Player Left</Card.Body>
+            </Card>
           </div>
+          <div className='page-jackpot'>
+            <Card className='jackpot-card'>
+              <Card.Body>Jackpot: $1,000</Card.Body>
+            </Card>
+          </div>
+        </div>
+        <div className='directions-container'>
+          <h3 className='directions'>Will Mike Evans Score A TD Tonight? </h3>
+        </div>
+      </div>
+      <div id='team-pick'className="selection-container">
+        
+      </div>
+    <div className='picks-container-buttons'>
+      <div className='enter-picks-button-container'>
+        <Button variant='primary' id='button' onClick={handlePicksEntry} size='lg'>Enter Picks</Button>
+      </div>
     </div>
   </div>
   )
